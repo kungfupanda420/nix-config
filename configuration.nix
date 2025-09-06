@@ -84,12 +84,36 @@ in
   };
 
   # Enable the X11 windowing system.
-#  services.xserver.enable = true;
+
 
   # Enable the GNOME Desktop Environment. not this
-  services.xserver.enable=true;
-  services.xserver.displayManager.gdm.enable=true;
-  services.xserver.desktopManager.gnome.enable=true; 
+  #services.xserver.enable=true;
+  #services.xserver.displayManager.gdm.enable=true;
+  #services.xserver.desktopManager.gnome.enable=true; 
+  #the i3 ones
+  # Enable the X11 windowing system.
+services.xserver.enable = true;
+
+# Enable both GNOME and i3
+services.xserver.displayManager.gdm.enable = true;
+services.xserver.desktopManager.gnome.enable = true;
+services.xserver.windowManager.i3 = {
+  enable = true;
+  extraPackages = with pkgs; [
+    dmenu         # application launcher
+    i3status      # status bar
+    i3lock        # screen locker
+    i3blocks      # alternative status bar
+    rofi          # alternative application launcher
+  ];
+};
+
+
+
+
+  
+  
+  
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -150,7 +174,11 @@ in
     kitty
     
     steam-run
-    
+    feh
+    arandr
+    picom
+    nitrogen
+    polybar
      
   ];
 programs.java.enable=true;
