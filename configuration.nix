@@ -148,7 +148,7 @@ in
     discord
     tlauncher
     steam-run
-    
+    hyprland 
   ];
 programs.java.enable=true;
 
