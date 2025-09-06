@@ -29,7 +29,7 @@ let
     '';
   };
 in
-
+#hi
 
   
 
@@ -43,6 +43,8 @@ in
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./git-config.nix
+      ./rebuild-config.nix
+	
     ];
 
 
