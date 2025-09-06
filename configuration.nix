@@ -148,9 +148,9 @@ in
     discord
     tlauncher
     kitty
-    wofi
+    
     steam-run
-    hyprland
+    
      
   ];
 programs.java.enable=true;
