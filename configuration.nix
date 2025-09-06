@@ -150,7 +150,8 @@ in
     kitty
     wofy
     steam-run
-    hyprland 
+   # hyprland
+     
   ];
 programs.java.enable=true;
 
