@@ -147,6 +147,8 @@ in
     fastfetch
     discord
     tlauncher
+    kitty
+    wofy
     steam-run
     hyprland 
   ];
