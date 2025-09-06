@@ -147,10 +147,10 @@ in
     fastfetch
     discord
     tlauncher
-   # kitty
-   # wofy
+    kitty
+    wofi
     steam-run
-   # hyprland
+    hyprland
      
   ];
 programs.java.enable=true;
