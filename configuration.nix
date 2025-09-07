@@ -186,6 +186,7 @@ services.xserver.windowManager.i3 = {
     nitrogen
     polybar
     xterm
+    python
   ];
 programs.java.enable=true;
 
