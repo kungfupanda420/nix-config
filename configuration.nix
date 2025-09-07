@@ -179,7 +179,7 @@ services.xserver.windowManager.i3 = {
     picom
     nitrogen
     polybar
-     
+    xterm
   ];
 programs.java.enable=true;
 
