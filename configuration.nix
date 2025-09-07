@@ -37,7 +37,7 @@ in
 
 {
 
-
+programs.dconf.enable=true;
 
 
 
