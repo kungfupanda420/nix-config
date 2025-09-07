@@ -4,41 +4,6 @@
 
 { config, pkgs, ... }:
 
- # 1. Add the cursor theme to the system-wide packages
-  environment.systemPackages = with pkgs; [
-    # ... your other packages (vscode, brave, etc.) ...
-    phinger-cursors # Add your cursor theme here
-  ];
-
-  # 2. Enable dconf - this is necessary for GNOME to manage settings
-  programs.dconf.enable = true;
-
-  # 3. Set the cursor theme for all users via a dconf database setting
-  # This creates a system-wide default that applies when a user logs in.
-  environment.etc."dconf/db/local.d/01-cursor-theme" = {
-    text = ''
-      [org/gnome/desktop/interface]
-      cursor-theme='phinger-cursors-light'
-    '';
-    mode = "0644"; # Readable by all users
-  };
-
-  # 4. Force a system-wide dconf update by creating a profile script
-  # This ensures the setting is applied when the user session starts.
-  environment.etc."profile.d/set-cursor-theme.sh" = {
-    text = ''
-      # Check if dconf is available and the user is in a graphical session
-      if [ -n "$DISPLAY" ] && command -v dconf >/dev/null 2>&1; then
-        # Load the system database into the user's session
-        export DCONF_PROFILE="/etc/dconf/profile/user"
-        dconf update
-      fi
-    '';
-    mode = "0755"; # Executable by all users
-  };
-  
-  
-  
 
 
 
@@ -71,6 +36,41 @@ in
 
 
 {
+
+
+
+ environment.systemPackages = with pkgs; [
+    # ... your other packages (vscode, brave, etc.) ...
+    phinger-cursors # Add your cursor theme here
+  ];
+
+  # 2. Enable dconf - this is necessary for GNOME to manage settings
+  programs.dconf.enable = true;
+
+  # 3. Set the cursor theme for all users via a dconf database setting
+  # This creates a system-wide default that applies when a user logs in.
+  environment.etc."dconf/db/local.d/01-cursor-theme" = {
+    text = ''
+      [org/gnome/desktop/interface]
+      cursor-theme='phinger-cursors-light'
+    '';
+    mode = "0644"; # Readable by all users
+  };
+
+  # 4. Force a system-wide dconf update by creating a profile script
+  # This ensures the setting is applied when the user session starts.
+  environment.etc."profile.d/set-cursor-theme.sh" = {
+    text = ''
+      # Check if dconf is available and the user is in a graphical session
+      if [ -n "$DISPLAY" ] && command -v dconf >/dev/null 2>&1; then
+        # Load the system database into the user's session
+        export DCONF_PROFILE="/etc/dconf/profile/user"
+        dconf update
+      fi
+    '';
+    mode = "0755"; # Executable by all users
+  };
+
 
 
 
