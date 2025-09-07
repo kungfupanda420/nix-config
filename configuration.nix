@@ -39,10 +39,7 @@ in
 
 
 
- environment.systemPackages = with pkgs; [
-    # ... your other packages (vscode, brave, etc.) ...
-    phinger-cursors # Add your cursor theme here
-  ];
+
 
   # 2. Enable dconf - this is necessary for GNOME to manage settings
   programs.dconf.enable = true;
@@ -208,7 +205,7 @@ services.xserver.windowManager.i3 = {
     discord
     tlauncher
     kitty
-    
+    phinger-cursors
     steam-run
     feh
     arandr
