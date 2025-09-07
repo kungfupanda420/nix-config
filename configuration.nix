@@ -42,7 +42,7 @@ programs.dconf.enable=true;
 
 
   # 2. Enable dconf - this is necessary for GNOME to manage settings
-  programs.dconf.enable = true;
+  #programs.dconf.enable = true;
 
   # 3. Set the cursor theme for all users via a dconf database setting
   # This creates a system-wide default that applies when a user logs in.
